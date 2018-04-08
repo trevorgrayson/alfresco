@@ -1,0 +1,18 @@
+#!/usr/bin/osascript
+tell application "System Preferences"
+	activate
+	set the current pane to pane id "com.apple.preference.universalaccess"
+	delay 1 # needs time to open universal access
+  reveal anchor "Seeing_Display" of pane id "com.apple.preference.universalaccess"
+	tell application "System Events" to tell process "System Preferences" to tell window "Accessibility"
+
+		click checkbox "Invert colors"
+		click checkbox "Use grayscale"
+		click checkbox "Differentiate without color"
+    click checkbox "Reduce motion"
+    click checkbox "Increase contrast"
+    # click checkbox "Reduce transparency"
+	end tell
+end tell
+
+tell application "System Preferences" to quit
